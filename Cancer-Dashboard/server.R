@@ -9,6 +9,6 @@ function(input, output) {
     })
     
     source(file.path("server/Information Server.R"), local = TRUE)$value ## Information page sourcing in
-    
+    source(file.path("server/Download Reference Files.R"), local = TRUE)$value
   
   }# End of Server
