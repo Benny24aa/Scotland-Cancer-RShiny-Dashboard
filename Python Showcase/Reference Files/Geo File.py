@@ -1,5 +1,7 @@
 import pandas as pd
 import urllib
+import requests
+
 
 HB_Lookup = HB_Lookup.drop(columns=['Country', 'HBDateEnacted']).loc[HB_Lookup['HBDateArchived'].isna()]
 HB_Lookup['GeoType'] = "Health Board"
