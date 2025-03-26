@@ -1,3 +1,14 @@
 function(input, output) {
-  source(file.path("server/Information Server.R"), local = TRUE)$value ## Information page sourcing in
-}# End of Server
+
+    filter_hb_main <- reactive({
+      
+      filter_hb_main <- HB_List[HB_List$HBName == input$hb_name,]
+      
+      return(filter_hb_main)
+      
+    })
+    
+    source(file.path("server/Information Server.R"), local = TRUE)$value ## Information page sourcing in
+    
+  
+  }# End of Server

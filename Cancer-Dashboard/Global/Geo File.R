@@ -68,3 +68,15 @@ Data_Zone_Lookup <- Data_Zone_Lookup %>%
   rename(GeoCode = DataZone, GeoName = DataZoneName)
 
 Lookup_List <- bind_rows(Council_Lookup, Interminate_Zone_Lookup, Hospital_Lookup, Data_Zone_Lookup)
+
+#### List for HB Filter on top of Information Page
+
+HB_List <- HB_Lookup %>% 
+  select(HBName) %>% 
+  arrange(HBName)
+
+HBName <- c("All Scotland Data")
+HBName <- data.frame(HBName)
+
+HB_List <- bind_rows(HB_List, HBName)%>% 
+  arrange(HBName) 
