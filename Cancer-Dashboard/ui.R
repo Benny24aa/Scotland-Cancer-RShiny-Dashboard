@@ -13,6 +13,7 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            
            ##### Tab Panels
            information, ### basic information/home page
+           navbarMenu("Download Data"),
            navbarMenu("Mortality"), ### Commentary Page
            navbarMenu("Incidence")#Nav Bar for all reference files
            
