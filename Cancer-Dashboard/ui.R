@@ -2,6 +2,7 @@
 source("UI/Information UI.R"
 )# Sourcing in Information Tab from different script
 source("UI/Reference File Download.R")
+source("UI/Cancer Data Download.R")
 #################################
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
@@ -13,7 +14,7 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            
            ##### Tab Panels
            information, ### basic information/home page
-           navbarMenu("Download Data", reference_file_download),
+           navbarMenu("Download Data", reference_file_download, cancer_data_download),
            navbarMenu("Mortality"), ### Commentary Page
            navbarMenu("Incidence")#Nav Bar for all reference files
            
