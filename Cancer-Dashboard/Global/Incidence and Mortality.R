@@ -6,17 +6,29 @@ Cancer_Data_Mortality_HB <- full_join(Cancer_Data_Mortality_HB, HB_Lookup, by = 
   rename(GeoCode = HB, GeoName = HBName)
 
 
-Cancer_Mortality_Cleaned <- Cancer_Data_Mortality_HB  %>%
+Cancer_Mortality_HB<- Cancer_Data_Mortality_HB  %>%
   select(GeoCode, CancerSiteICD10Code, CancerSite, Sex, Year, DeathsAllAges, CrudeRate, EASR, WASR, StandardisedMortalityRatio, GeoName, GeoType, DataType) %>% 
-  rename(AllAges = DeathsAllAges, StandardisedRatio = StandardisedMortalityRatio )
+  rename(AllAges = DeathsAllAges, StandardisedRatio = StandardisedMortalityRatio)
 
+Cancer_Mortality_HB_Scotland <- Cancer_Data_Mortality_HB %>% 
+  mutate(GeoName = "All Scotland Data")
+
+Cancer_Data_Mortality_HB <- bind_rows(Cancer_Data_Mortality_HB, Cancer_Mortality_HB_Scotland)
 
 Cancer_Data_Incidence_HB <- full_join(Cancer_Data_Incidence_HB, HB_Lookup, by = "HB") %>% 
   mutate(DataType = "Incidence") %>% 
   rename(GeoCode = HB, GeoName = HBName, AllAges = IncidencesAllAges, StandardisedRatio = StandardisedIncidenceRatio)
 
-Cancer_Data_Incidence_Cleaned <- Cancer_Data_Incidence_HB %>% 
+Cancer_Incidence_HB_Scotland <- Cancer_Data_Incidence_HB %>% 
+  mutate(GeoName = "All Scotland Data")
+
+Cancer_Data_Incidence_HB <- bind_rows(Cancer_Data_Incidence_HB, Cancer_Incidence_HB_Scotland)
+
+
+Cancer_Data_Incidence_HB <- Cancer_Data_Incidence_HB %>% 
   select(GeoCode, CancerSiteICD10Code, CancerSite, Sex, Year, AllAges, CrudeRate, EASR, WASR, StandardisedRatio, GeoName, GeoType, DataType) 
 
 
-Cancer_Full_Data <- bind_rows(Cancer_Data_Incidence_Cleaned, Cancer_Mortality_Cleaned)
+Cancer_Full_Data <- bind_rows(Cancer_Data_Incidence_HB, Cancer_Mortality_HB) %>% 
+  rename(HBName = GeoName)
+
