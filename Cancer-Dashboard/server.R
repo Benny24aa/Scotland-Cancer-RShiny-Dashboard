@@ -8,6 +8,15 @@ function(input, output) {
       
     })
     
+    filter_datatype_main <- reactive({
+      
+      filter_datatype_main <- Cancer_Data_Type[Cancer_Data_Type$DataType == input$datatype_input,]
+      
+      return(filter_datatype_main)
+      
+    })
+    
+    
     source(file.path("server/Information Server.R"), local = TRUE)$value ## Information page sourcing in
     source(file.path("server/Download Reference Files.R"), local = TRUE)$value
     source(file.path("server/Download Cancer Data.R"), local = TRUE)$value
