@@ -4,8 +4,13 @@ information <- tabPanel(title = "Home",
                         fluidRow(
                           column(6, selectInput("hb_name", label = "Select Healthboard",
                                                 choices = unique(HB_List$HBName,
+                                                                 multiple = FALSE))),
+                          
+                          column(6, selectInput("datatype_input", label = "Select data you wish to view",
+                                                choices = unique(Cancer_Data_Type$DataType,
                                                                  multiple = FALSE)))
                         ),
+                        
                         fluidRow(
                           column(6,
                                  h2("Welcome", style = "color:  #336699 ; font-weight: 600"))),
