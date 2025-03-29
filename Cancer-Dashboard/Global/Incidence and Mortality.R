@@ -32,3 +32,6 @@ Cancer_Data_Incidence_HB <- Cancer_Data_Incidence_HB %>%
 Cancer_Full_Data <- bind_rows(Cancer_Data_Incidence_HB, Cancer_Mortality_HB) %>% 
   rename(HBName = GeoName)
 
+Cancer_Data_Type <- Cancer_Full_Data %>% 
+  select(DataType) %>% 
+  distinct()
