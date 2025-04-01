@@ -1,18 +1,11 @@
 data_download_table_cancer <- reactive({
   
   table_data_cancer <- switch(input$cancer_download_select,
-                      "Cancer_Data_Incidence_HB" = Cancer_Data_Incidence_HB,
-                      "Cancer_Data_Mortality_HB" = Cancer_Data_Mortality_HB,
                       "Cancer_Full_Data" = Cancer_Full_Data)
-  
-  Cancer_Data_Incidence_HB <- Cancer_Data_Incidence_HB %>% 
-    filter(GeoName == input$hb_name)
-  
-  Cancer_Data_Mortality_HB <- Cancer_Data_Mortality_HB %>% 
-    filter(GeoName == input$hb_name)
-  
+
   Cancer_Full_Data <- Cancer_Full_Data %>% 
-    filter(HBName == input$hb_name)
+    filter(HBName == input$hb_name)%>% 
+    filter(DataType == input$datatype_input)
 })
 
 # Render Data Table
