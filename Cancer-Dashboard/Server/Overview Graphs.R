@@ -1,5 +1,9 @@
 output$scotland_info_graph_server <- renderPlotly({
-  Scotland_Info_Graph <- Scotland_Info_Graph %>% 
+    Cancer_Full_Data <- Cancer_Full_Data %>% 
+    select(-CancerSiteICD10Code) %>% 
+    filter(CancerSite == "All cancer types") %>% 
+    filter(Sex == "All") %>% 
+    select(Year, AllAges, HBName, DataType) %>% 
     filter(HBName == input$hb_name) %>% select(-HBName) %>% 
     filter(DataType == input$datatype_input) %>% 
     plot_ly(x = ~ Year,
