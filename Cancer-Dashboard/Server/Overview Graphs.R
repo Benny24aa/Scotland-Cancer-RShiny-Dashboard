@@ -10,5 +10,5 @@ output$scotland_info_graph_server <- renderPlotly({
             y = ~ AllAges,
             type = 'bar') %>% 
     layout(xaxis = list(title = "Year"),
-           yaxis = list(title = "Test"))
+           yaxis = list(title = input$datatype_input))
 })
