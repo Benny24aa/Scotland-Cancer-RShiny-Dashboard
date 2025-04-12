@@ -30,7 +30,13 @@ Cancer_Data_Incidence_HB <- Cancer_Data_Incidence_HB %>%
 
 
 Cancer_Full_Data <- bind_rows(Cancer_Data_Incidence_HB, Cancer_Data_Mortality_Cleaned) %>% 
-  rename(HBName = GeoName)
+  rename(HBName = GeoName) 
+
+Scotland_Info_Graph <- Cancer_Full_Data %>% 
+  select(-CancerSiteICD10Code) %>% 
+  filter(CancerSite == "All cancer types") %>% 
+  filter(Sex == "All") %>% 
+  select(Year, AllAges, HBName, DataType)
 
 Cancer_Data_Type <- Cancer_Full_Data %>% 
   select(DataType) %>% 
