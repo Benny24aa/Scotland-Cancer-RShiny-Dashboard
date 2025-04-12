@@ -4,8 +4,7 @@ data_download_table_cancer <- reactive({
                       "Cancer_Full_Data" = Cancer_Full_Data)
 
   Cancer_Full_Data <- Cancer_Full_Data %>% 
-    filter(HBName == input$hb_name)%>% 
-    filter(DataType == input$datatype_input)
+    filter(HBName == input$hb_name)
 })
 
 # Render Data Table
