@@ -14,8 +14,9 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            
            ##### Tab Panels
            information, ### basic information/home page
-           navbarMenu("Download Data", reference_file_download, cancer_data_download),
-           navbarMenu("Overview")
+           navbarMenu("Overview"),
+           navbarMenu("Download Data", reference_file_download, cancer_data_download)
+
            
            
            
