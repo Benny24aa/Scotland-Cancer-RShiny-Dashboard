@@ -80,3 +80,6 @@ HBName <- data.frame(HBName)
 
 HB_List <- bind_rows(HB_List, HBName)%>% 
   arrange(HBName) 
+
+HB_List <- HB_List %>% 
+  filter(HBName != "All Scotland Data")
