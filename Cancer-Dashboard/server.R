@@ -16,6 +16,13 @@ function(input, output) {
       
     })
     
+    filter_graph_type <- reactive({
+      
+      filter_graph_type <- GraphTypeOptions[GraphTypeOptions$Graph_Types == input$graphtype_input,]
+      
+      return(filter_Graph_type)
+    })
+    
     
     source(file.path("server/Information Server.R"), local = TRUE)$value ## Information page sourcing in
     source(file.path("server/Download Reference Files.R"), local = TRUE)$value

@@ -37,3 +37,7 @@ Cancer_Full_Data$Year <- as.Date(as.character(Cancer_Full_Data$Year), format = "
 Cancer_Data_Type <- Cancer_Full_Data %>% 
   select(DataType) %>% 
   distinct()
+
+Graph_Types <- c("AllAges", "CrudeRate", "EASR", "WASR", "StandardisedRatio")
+GraphTypeOptions <- data.frame(Graph_Types)
+
