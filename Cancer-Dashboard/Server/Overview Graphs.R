@@ -8,7 +8,8 @@ output$scotland_info_graph_server <- renderPlotly({
     filter(DataType == input$datatype_input) %>% 
     plot_ly(x = ~ Year,
             y = ~ AllAges,
-            type = 'bar') %>% 
+            type = 'scatter',
+            mode = 'lines') %>% 
     layout(xaxis = list(title = "Year"),
            yaxis = list(title = input$datatype_input))
 })
