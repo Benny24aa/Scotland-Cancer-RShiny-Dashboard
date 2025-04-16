@@ -2,14 +2,6 @@ information <- tabPanel(title = "Home",
                         icon = icon("home"),
                         
                         fluidRow(
-                          column(6, selectInput("hb_name", label = "Select Healthboard",
-                                                choices = unique(HB_List$HBName,
-                                                                 multiple = FALSE)))
-                          
-                      
-                        ),
-                        
-                        fluidRow(
                           column(6,
                                  h2("Welcome to the Scottish Open Data Cancer Dashboard", style = "color:  #336699 ; font-weight: 600"))),
                         
