@@ -8,4 +8,5 @@ source("Global/Data Download Lists.R")
 source("Global/Incidence and Mortality.R")
 
 gender_palette <- c("Females" = "#E1C7DF",
-                    "Male" = "#0078D4")
+                    "Male" = "#0078D4",
+                    "Female" = "#E1C7DF" )
