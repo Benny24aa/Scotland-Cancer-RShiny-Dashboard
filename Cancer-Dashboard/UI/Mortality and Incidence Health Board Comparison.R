@@ -10,9 +10,12 @@ fluidRow(
   column(3, pickerInput("hb_name_compare", label = "Select Healthboard",
                         choices = unique(HB_List$HBName,
                                          multiple = FALSE,
-                                         selected = HB_List$HBName,
+                                         selected = NULL,
                                          options = list( 
-                                           `actions-box` = TRUE)))),
+                                           `actions-box` = TRUE),
+                                         choicesOpt = NULL))),
+  
+ 
   
 column(3, selectInput("datatype_input", label = "Select data you wish to view",
                       choices = unique(Cancer_Data_Type$DataType,

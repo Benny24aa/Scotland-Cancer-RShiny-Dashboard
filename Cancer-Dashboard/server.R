@@ -23,6 +23,7 @@ function(input, output) {
       return(filter_Graph_type)
     })
     
+
     
     source(file.path("server/Information Server.R"), local = TRUE)$value ## Information page sourcing in
     source(file.path("server/Download Reference Files.R"), local = TRUE)$value
