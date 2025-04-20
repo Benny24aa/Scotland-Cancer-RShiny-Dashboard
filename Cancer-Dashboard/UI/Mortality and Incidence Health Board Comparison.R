@@ -16,15 +16,15 @@ fluidRow(
   # 
  
   
-column(3, selectInput("datatype_input", label = "Select data you wish to view",
+column(3, selectInput("datatype_input_compare", label = "Select data you wish to view",
                       choices = unique(Cancer_Data_Type$DataType,
                                        multiple = TRUE))),
 
-column(3, selectInput("graphtype_input", label = "Select statistical graph type",
+column(3, selectInput("graphtype_input_compare", label = "Select statistical graph type",
                       choices = unique(GraphTypeOptions$Graph_Types,
                                        multiple = TRUE))),
 
-column(3, selectInput("Cancer_Type_Input", label = "Select the cancer type you wish to explore",
+column(3, selectInput("Cancer_Type_Input_compare", label = "Select the cancer type you wish to explore",
                       choices = unique(cancer_types$CancerSite,
                                        multiple = TRUE)))
 
