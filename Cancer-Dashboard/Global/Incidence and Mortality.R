@@ -31,7 +31,8 @@ Cancer_Data_Incidence_HB <- Cancer_Data_Incidence_HB %>%
 
 Cancer_Full_Data <- bind_rows(Cancer_Data_Incidence_HB, Cancer_Data_Mortality_Cleaned) %>% 
   rename(HBName = GeoName) %>% 
-  mutate(Sex = gsub("Females", "Female", Sex))
+  mutate(Sex = gsub("Females", "Female", Sex)) %>% 
+  filter(CancerSite != "All cancer types incl NMSC")
 
 Cancer_Full_Data$Year <- as.Date(as.character(Cancer_Full_Data$Year), format = "%Y")
 
@@ -44,4 +45,13 @@ GraphTypeOptions <- data.frame(Graph_Types)
 
 cancer_types <- Cancer_Full_Data %>% 
   select(CancerSite) %>% 
-  unique()
+  unique() %>% 
+  arrange(CancerSite)
+
+cancer_types_all_filtered <- cancer_types %>% 
+  filter(grepl('All', CancerSite))
+
+cancer_types <- cancer_types %>% 
+  filter(!grepl("All", CancerSite))
+
+cancer_types <- bind_rows(cancer_types_all_filtered, cancer_types)
