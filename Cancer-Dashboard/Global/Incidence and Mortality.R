@@ -30,7 +30,8 @@ Cancer_Data_Incidence_HB <- Cancer_Data_Incidence_HB %>%
 
 
 Cancer_Full_Data <- bind_rows(Cancer_Data_Incidence_HB, Cancer_Data_Mortality_Cleaned) %>% 
-  rename(HBName = GeoName) 
+  rename(HBName = GeoName) %>% 
+  mutate(Sex = gsub("Females", "Female", Sex))
 
 Cancer_Full_Data$Year <- as.Date(as.character(Cancer_Full_Data$Year), format = "%Y")
 
