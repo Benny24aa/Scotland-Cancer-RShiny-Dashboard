@@ -32,3 +32,22 @@ output$scotland_gender_graph_server <- renderPlotly({
            yaxis = list(title = input$graphtype_input))
   
 })
+
+output$hb_compare_graph <- renderPlotly({
+  Cancer_Full_Data <- Cancer_Full_Data %>% 
+    select(-CancerSiteICD10Code) %>% 
+    filter(CancerSite == "All cancer types") %>% 
+    filter(Sex == "All") %>% 
+    select(Year, AllAges, CrudeRate, EASR, WASR, StandardisedRatio, HBName, DataType) %>% 
+    filter(DataType == input$datatype_input) %>% 
+    filter(HBName != "All Scotland Data") %>% 
+    plot_ly(x = ~ Year,
+            y = ~ get(input$graphtype_input),
+            color = ~ HBName,
+            type = 'scatter',
+            mode = 'lines') %>% 
+    layout(xaxis = list(title = "Year"),
+           yaxis = list(title = input$graphtype_input))
+  
+})
+
