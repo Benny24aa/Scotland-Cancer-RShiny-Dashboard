@@ -12,7 +12,15 @@ column(4, selectInput("datatype_input", label = "Select data you wish to view",
 
 column(4, selectInput("graphtype_input", label = "Select statistical graph type",
                       choices = unique(GraphTypeOptions$Graph_Types,
-                                       multiple = TRUE)))),
+                                       multiple = TRUE))),
+
+column(4, selectInput("Cancer_Type_Input", label = "Select the cancer type you wish to explore",
+                      choices = unique(cancer_types$CancerSite,
+                                       multiple = TRUE)))
+
+
+
+),
 
 fluidRow(
   column(3, plotlyOutput("hb_compare_graph", width = "400%", height = "600px")))
