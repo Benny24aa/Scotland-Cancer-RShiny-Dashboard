@@ -7,14 +7,13 @@ fluidRow(
 
 fluidRow(
   
-  column(3, pickerInput("hb_name_compare", label = "Select Healthboard",
-                        choices = unique(HB_List$HBName,
-                                         multiple = FALSE,
-                                         selected = NULL,
-                                         options = list( 
-                                           `actions-box` = TRUE),
-                                         choicesOpt = NULL))),
-  
+  # column(3,  selectizeInput("hb_name_compare", label = "Select Healthboard",
+  #                       choices = unique(HB_List$HBName,
+  #                                        multiple = FALSE,
+  #                                        selected = HB_List$HBName,
+  #                                        options = list( 
+  #                                          `actions-box` = TRUE)))),
+  # 
  
   
 column(3, selectInput("datatype_input", label = "Select data you wish to view",

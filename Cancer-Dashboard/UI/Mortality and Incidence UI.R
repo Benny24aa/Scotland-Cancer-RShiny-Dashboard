@@ -22,7 +22,13 @@ Cancer_Mortality_Incidence <- tabPanel(title = "Health Board Overview",
                           column(3, plotlyOutput("scotland_info_graph_server", width = "400%", height = "600px"))),
                         fluidRow(
                           column(3, plotlyOutput("scotland_gender_graph_server", width = "400%", height = "600px"))),
-                        
+                        fluidRow(
+                          column(3, selectInput("Cancer_Type_Input", label = "Select the cancer type you wish to explore",
+                                                       choices = unique(cancer_types$CancerSite,
+                                                                        multiple = TRUE)))),
+                        fluidRow(
+                          column(3, plotlyOutput("scotland_cancertype_graph_server", width = "400%", height = "600px")))
+
                           
                           
                         )
