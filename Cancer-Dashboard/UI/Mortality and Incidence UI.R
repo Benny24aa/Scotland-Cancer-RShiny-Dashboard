@@ -12,11 +12,11 @@ Cancer_Mortality_Incidence <- tabPanel(title = "Health Board Overview",
                                                                  multiple = FALSE))),
                           column(4, selectInput("datatype_input", label = "Select data you wish to view",
                                                 choices = unique(Cancer_Data_Type$DataType,
-                                                                 multiple = FALSE))),
+                                                                 multiple = TRUE))),
                           
                           column(4, selectInput("graphtype_input", label = "Select statistical graph type",
                                                 choices = unique(GraphTypeOptions$Graph_Types,
-                                                                 multiple = FALSE)))),
+                                                                 multiple = TRUE)))),
                      
                         fluidRow(
                           column(3, plotlyOutput("scotland_info_graph_server", width = "400%", height = "600px"))),
