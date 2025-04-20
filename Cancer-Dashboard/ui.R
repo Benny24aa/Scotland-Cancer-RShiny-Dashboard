@@ -4,6 +4,7 @@ source("UI/Information UI.R"
 source("UI/Reference File Download.R")
 source("UI/Cancer Data Download.R")
 source("UI/Mortality and Incidence UI.R")
+source("UI/Mortality and Incidence Health Board Comparison.R")
 #################################
 navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
                               href= "",
@@ -16,6 +17,7 @@ navbarPage(title = div(tags$a(img(src="", width=120, alt = ""),
            ##### Tab Panels
            information, ### basic information/home page
            Cancer_Mortality_Incidence,
+           Cancer_Mortality_Incidence_Comparison,
            navbarMenu("Download Data", reference_file_download, cancer_data_download)
 
            

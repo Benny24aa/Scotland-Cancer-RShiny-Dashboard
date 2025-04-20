@@ -1,9 +1,9 @@
-Cancer_Mortality_Incidence <- tabPanel(title = "Mortality and Incidence", 
+Cancer_Mortality_Incidence <- tabPanel(title = "Health Board Overview", 
                         icon = icon("hospital"),
                         
                         fluidRow(
                           column(6,
-                                 h2("Welcome to the Scottish Open Data Cancer Dashboard", style = "color:  #336699 ; font-weight: 600"))),
+                                 h2("Health Board Overview", style = "color:  #336699 ; font-weight: 600"))),
                         
                         fluidRow(
                           

@@ -42,3 +42,6 @@ Cancer_Data_Type <- Cancer_Full_Data %>%
 Graph_Types <- c("AllAges", "CrudeRate", "EASR", "WASR", "StandardisedRatio")
 GraphTypeOptions <- data.frame(Graph_Types)
 
+cancer_types <- Cancer_Full_Data %>% 
+  select(CancerSite) %>% 
+  unique()
